@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 import random
 
-from models import Actor, Director, Genre, Movie
+from app.models.models import Actor, Director, Genre, Movie
 
 def seed_data(engine):
     with Session(engine) as session:
