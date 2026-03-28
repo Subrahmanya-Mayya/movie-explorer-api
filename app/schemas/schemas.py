@@ -17,6 +17,11 @@ class MovieDetailResponse(BaseModel):
     genres: List[str]
     actors: List[str]
 
+class MovieSimpleResponse(BaseModel):
+    id: int
+    title: str
+    release_year: int
+
 class ActorResponse(BaseModel):
     id: int
     name: str
@@ -25,7 +30,7 @@ class ActorResponse(BaseModel):
 class ActorDetailResponse(BaseModel):
     id: int
     name: str
-    movies: List[MovieListResponse]
+    movies: List[MovieSimpleResponse]
 
 class DirectorResponse(BaseModel):
     id: int
@@ -35,7 +40,7 @@ class DirectorResponse(BaseModel):
 class DirectorDetailResponse(BaseModel):
     id: int
     name: str
-    movies: List[MovieListResponse]
+    movies: List[MovieSimpleResponse]
 
 class GenreResponse(BaseModel):
     id: int
