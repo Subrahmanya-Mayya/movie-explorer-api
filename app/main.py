@@ -15,12 +15,9 @@ async def lifespan(_: FastAPI):
 
 app = FastAPI(title="Movie Explorer API", lifespan=lifespan)
 
-origins = [
-    "http://localhost:5173",  # Front end app
-]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
