@@ -4,6 +4,7 @@ import random
 from app.models.models import Actor, Director, Genre, Movie, Review
 
 
+# Seed data for testing and development
 def seed_data(engine):
     with Session(engine) as session:
         if session.query(Movie.id).first() is not None:
@@ -83,7 +84,7 @@ def seed_data(engine):
         ]
 
         for movie in movies:
-            review_count = random.randint(1, 4)
+            review_count = random.randint(2, 4)
             for _ in range(review_count):
                 review = Review(
                     reviewer_name=random.choice(reviewer_names),

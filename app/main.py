@@ -7,6 +7,7 @@ from app.api.main import api_router
 from app.core.db import init_db
 
 
+# Initialize the database and seed data on application startup
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     init_db()
@@ -15,6 +16,7 @@ async def lifespan(_: FastAPI):
 
 app = FastAPI(title="Movie Explorer API", lifespan=lifespan)
 
+# Handle CORS for frontend integration. Update the allow_origins list with front-end domain in production.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

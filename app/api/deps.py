@@ -1,3 +1,5 @@
+"""Dependency injection for FastAPI routes. Provides services with database sessions."""
+
 from fastapi import Depends
 from sqlalchemy.orm import Session
 

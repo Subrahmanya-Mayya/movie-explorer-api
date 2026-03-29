@@ -50,7 +50,10 @@ def test_get_actor_detail_raises_404_when_missing():
 
 
 def test_get_actor_detail_returns_movies_projection():
-    movies = [Movie(id=1, title="Inception", release_year=2010), Movie(id=2, title="Oppenheimer", release_year=2023)]
+    movies = [
+        Movie(id=1, title="Inception", release_year=2010),
+        Movie(id=2, title="Oppenheimer", release_year=2023),
+    ]
     actor = Actor(id=1, name="Cillian Murphy", movies=movies)
     service = ActorService(repository=FakeActorRepository(actor=actor))
 

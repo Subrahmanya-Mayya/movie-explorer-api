@@ -18,12 +18,18 @@ class FakeDirectorRepository:
 
 
 def test_get_all_directors_maps_response():
-    directors = [Director(id=1, name="Christopher Nolan"), Director(id=2, name="Denis Villeneuve")]
+    directors = [
+        Director(id=1, name="Christopher Nolan"),
+        Director(id=2, name="Denis Villeneuve"),
+    ]
     service = DirectorService(repository=FakeDirectorRepository(directors=directors))
 
     response = service.get_all_directors()
 
-    assert [director.name for director in response] == ["Christopher Nolan", "Denis Villeneuve"]
+    assert [director.name for director in response] == [
+        "Christopher Nolan",
+        "Denis Villeneuve",
+    ]
 
 
 def test_get_director_detail_raises_404_when_missing():

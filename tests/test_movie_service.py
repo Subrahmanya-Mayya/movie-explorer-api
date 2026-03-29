@@ -7,7 +7,9 @@ from app.services.movie_service import MovieService
 
 
 class FakeMovieRepository:
-    def __init__(self, movies=None, movie=None, exists=True, avg_score=None, reviews=None):
+    def __init__(
+        self, movies=None, movie=None, exists=True, avg_score=None, reviews=None
+    ):
         self._movies = movies or []
         self._movie = movie
         self._exists = exists
@@ -33,7 +35,9 @@ class FakeMovieRepository:
 def test_fetch_movies_maps_domain_to_response():
     director = Director(id=1, name="Christopher Nolan")
     genres = [Genre(id=1, name="Sci-Fi"), Genre(id=2, name="Action")]
-    movie = Movie(id=1, title="Inception", release_year=2010, director=director, genres=genres)
+    movie = Movie(
+        id=1, title="Inception", release_year=2010, director=director, genres=genres
+    )
 
     service = MovieService(repository=FakeMovieRepository(movies=[movie]))
 
@@ -50,7 +54,9 @@ def test_fetch_movies_passes_filters_to_repository():
     repository.list_movies.return_value = []
 
     service = MovieService(repository=repository)
-    service.fetch_movies(genre="action", actor="cillian", director="nolan", release_year=2010)
+    service.fetch_movies(
+        genre="action", actor="cillian", director="nolan", release_year=2010
+    )
     repository.list_movies.assert_called_once_with(
         genre="action", actor="cillian", director="nolan", release_year=2010
     )

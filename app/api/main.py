@@ -1,3 +1,5 @@
+"""API Router for the movie APIs"""
+
 from fastapi import APIRouter
 
 from app.api.routers import (
