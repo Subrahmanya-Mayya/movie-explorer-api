@@ -1,5 +1,12 @@
 # Movie Explorer API
 
+A REST API for browsing movies, actors, directors, and genres — with filtering support.
+
+## Tech Stack
+
+- **Framework:** FastAPI
+- **Database:** SQLite
+
 ## Run with Docker
 
 **Using Docker Compose**
@@ -72,4 +79,4 @@ uvicorn app.main:app --reload
 ```
 
 The API will be available at `http://127.0.0.1:8000`.  
-Interactive docs: `http://127.0.0.1:8000/docs`
+Swagger/OpenAPI Spec docs: `http://127.0.0.1:8000/docs`
