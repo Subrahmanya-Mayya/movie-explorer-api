@@ -7,14 +7,9 @@ from app.schemas.schemas import GenreResponse
 
 router = APIRouter(prefix="/genres", tags=["Genres"])
 
+
 @router.get("/", response_model=list[GenreResponse])
 def get_genres(db: Session = Depends(get_db)):
     stmt = select(Genre)
     genres = db.execute(statement=stmt).scalars().all()
-    return [
-        {
-            "id": g.id,
-            "name": g.name
-        }
-        for g in genres
-    ]
+    return [GenreResponse(id=g.id, name=g.name) for g in genres]
